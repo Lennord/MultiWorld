@@ -2,7 +2,7 @@
 
 # |-> This skript plugin allows you to redo and improve the MultiWorld plugin (Java) but in skript !
 
-# |-> MultiWorld Update 1.4.5 RELEASE
+# |-> MultiWorld Update 1.4.6 RELEASE
 
 #  |-> PLUGIN CODE:
 
@@ -114,7 +114,7 @@ function MultiWorldWorldCreateNewWorldTheEnd(s: sender):
 function MultiWorldWorldCreateNewWorldFlat(s: sender):
 	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
 	wait 1 tick
-	if {_s} has permission "multiworld.*" or "multiworld.world.create.end" or "multiworld.world.create.*" or "multiworld.world.*":
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.flat" or "multiworld.world.create.*" or "multiworld.world.*":
 		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.flat.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
 		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.flat.use} to normal
 		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.flat.use} to flat
@@ -122,7 +122,7 @@ function MultiWorldWorldCreateNewWorldFlat(s: sender):
 		wait 1 tick
 		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cFlat&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.end" or "multiworld.world.create.*" or "multiworld.world.*":
+	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.flat" or "multiworld.world.create.*" or "multiworld.world.*":
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
