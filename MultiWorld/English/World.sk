@@ -35,7 +35,7 @@ function MultiWorldWorldCreateMenu(s: sender):
 		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenu" of {_s} to orange stained glass pane
 		open (metadata tag "MultiWorldCreateMenu" of {_s}) to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.openmenu" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
@@ -50,7 +50,7 @@ function MultiWorldWorldCreateMenuLargeBiomes(s: sender):
 		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to orange stained glass pane
 		open (metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s}) to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.openmenu" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
@@ -65,7 +65,7 @@ function MultiWorldWorldCreateMenuAmplified(s: sender):
 		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to orange stained glass pane
 		open (metadata tag "MultiWorldCreateMenuAmplified" of {_s}) to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.openmenu" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
