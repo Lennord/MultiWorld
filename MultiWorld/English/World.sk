@@ -70,149 +70,131 @@ function MultiWorldWorldCreateMenuAmplified(s: sender):
 		stop
 
 function MultiWorldWorldCreateNewWorldNormal(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.normal" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.normal.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.normal.use} to normal
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.normal.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.normal.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.normal.use} to normal
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.normal.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cNormal&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cNormal&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.normal" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldNether(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.nether" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.nether.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.nether.use} to nether
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.nether.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.nether.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.nether.use} to nether
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.nether.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cNether&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cNether&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.nether" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldTheEnd(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.end" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.end.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.end.use} to the end
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.end.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.end.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.end.use} to the end
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.end.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cThe end&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cThe end&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.end" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldFlat(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.flat" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.flat.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.flat.use} to normal
-		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.flat.use} to flat
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.flat.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.flat.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.flat.use} to normal
+		set world type of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.flat.use} to flat
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.flat.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cFlat&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cFlat&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.flat" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldLargeBiomesNormal(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.largebiomes.normal" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.normal.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.normal.use} to normal
-		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.normal.use} to large biomes
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.normal.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.normal.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.normal.use} to normal
+		set world type of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.normal.use} to large biomes
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.normal.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.largebiomes.normal" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldLargeBiomesNether(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.largebiomes.nether" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.nether.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.nether.use} to nether
-		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.nether.use} to large biomes
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.nether.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.nether.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.nether.use} to nether
+		set world type of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.nether.use} to large biomes
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.nether.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.largebiomes.nether" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldLargeBiomesTheEnd(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.largebiomes.end" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.end.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.end.use} to the end
-		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.end.use} to large biomes
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.largebiomes.use.end.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.end.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.end.use} to the end
+		set world type of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.end.use} to large biomes
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.largebiomes.use.end.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.largebiomes.end" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldAmplifiedNormal(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.amplified.normal" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.normal.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.normal.use} to normal
-		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.normal.use} to amplified
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.normal.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.normal.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.normal.use} to normal
+		set world type of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.normal.use} to amplified
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.normal.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cNormal &7- &cAmplified&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cNormal &7- &cAmplified&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.amplified.normal" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldAmplifiedNether(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
+	set {_s}'s uuid to uuid of {_s}
 	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.amplified.nether" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.nether.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.nether.use} to nether
-		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.nether.use} to amplified
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.nether.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.nether.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.nether.use} to nether
+		set world type of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.nether.use} to amplified
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.nether.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cNether &7- &cAmplified&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cNether &7- &cAmplified&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.amplified.nether" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
 function MultiWorldWorldCreateNewWorldAmplifiedTheEnd(s: sender):
-	set {_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use} to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.amplified.end" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
-		set {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.end.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}%"
-		set environment of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.end.use} to the end
-		set world type of {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.end.use} to amplified
-		load world from creator {_MultiWorld.use.create.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use.amplified.use.end.use}
+		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.end.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
+		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.end.use} to the end
+		set world type of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.end.use} to amplified
+		load world from creator {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.end.use}
 		wait 1 tick
-		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_MultiWorld.use.world.use.function.use.multiworldcreatenewworldcmd.use.senderuuid.use}%.use}% &7! &7(&cThe end &7- &cAmplified&7)" to {_s}
+		send "&7[&cMultiWorld&7] &7You have created new world &6%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}% &7! &7(&cThe end &7- &cAmplified&7)" to {_s}
 		stop
-	if {_s} doesn't have permission "multiworld.*" or "multiworld.world.create.amplified.end" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
+	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
 		stop
 
@@ -340,13 +322,13 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 	aliases: multiworld:world
 	description: &fMultiWorld command /world !
 	trigger:
-		if sender is a player:
+		if sender = player:
 			if arg 1 isn't set:
 				MultiWorldWorldHelp(player)
 			else:
-				if arg 1 is not "create" or "delete" or "teleport" or "tp" or "list" or "load" or "unload" or "info" or "difficulty" or "time" or "help":
+				if arg 1 != "create" or "delete" or "teleport" or "tp" or "list" or "load" or "unload" or "info" or "difficulty" or "time" or "help":
 					MultiWorldWorldHelp(player)
-				if arg 1 is "create":
+				if arg 1 = "create":
 					if player has permission "multiworld.*" or "multiworld.world.create" or "multiworld.world.*":
 						if arg 2 isn't set:
 							MultiWorldWorldHelp(player)
@@ -361,7 +343,7 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 					if player doesn't have permission "multiworld.*" or "multiworld.world.create" or "multiworld.world.*":
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-				if arg 1 is "delete":
+				if arg 1 = "delete":
 					if player has permission "multiworld.*" or "multiworld.world.delete" or "multiworld.world.*":
 						if arg 2 isn't set:
 							MultiWorldWorldHelp(player)
@@ -375,10 +357,10 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 									stop
 								else:
 									MultiWorldWorldDeleteWorld(player, arg 2)
-					if player doesn't have permission "multiworld.*" or "multiworld.world.delete" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-				if arg 1 is "teleport" or "tp":
+				if arg 1 = "teleport" or "tp":
 					if player has permission "multiworld.*" or "multiworld.world.teleport.%arg 2%" or "multiworld.world.teleport.*" or "multiworld.world.*":
 						if arg 2 isn't set:
 							MultiWorldWorldHelp(player)
@@ -388,10 +370,10 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 								stop
 							else:
 								MultiWorldWorldTeleportWorld(player, arg 2)
-					if player doesn't have permission "multiworld.*" or "multiworld.world.teleport.%arg 2%" or "multiworld.world.teleport.*" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-				if arg 1 is "list":
+				if arg 1 = "list":
 					if player has permission "multiworld.*" or "multiworld.world.list" or "multiworld.world.*":
 						set {_result.worlds} to 0
 						send "" to player
@@ -401,10 +383,10 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 							add 1 to {_result.worlds} 
 							send "&6World &7%{_result.worlds}%&7: &c%loop-value%" to player
 						stop
-					if player doesn't have permission "multiworld.*" or "multiworld.world.list" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-				if arg 1 is "load":
+				if arg 1 = "load":
 					if player has permission "multiworld.*" or "multiworld.world.load" or "multiworld.world.*":
 						if arg 2 isn't set:
 							MultiWorldWorldHelp(player)
@@ -414,10 +396,10 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 								stop
 							else:
 								MultiWorldWorldLoadWorld(player, arg 2)
-					if player doesn't have permission "multiworld.*" or "multiworld.world.load" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-				if arg 1 is "unload":
+				if arg 1 = "unload":
 					if player has permission "multiworld.*" or "multiworld.world.unload" or "multiworld.world.*":
 						if arg 2 isn't set:
 							MultiWorldWorldHelp(player)
@@ -431,10 +413,10 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 									stop
 								else:
 									MultiWorldWorldUnloadWorld(player, arg 2)
-					if player doesn't have permission "multiworld.*" or "multiworld.world.unload" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-				if arg 1 is "info":
+				if arg 1 = "info":
 					if player has permission "multiworld.*" or "multiworld.world.info.%arg 2%" or "multiworld.world.info.*" or "multiworld.world.*":
 						if arg 2 isn't set:
 							MultiWorldWorldHelp(player)
@@ -444,10 +426,10 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 								stop
 							else:
 								MultiWorldWorldInfoWorld(player, arg 2)
-					if player doesn't have permission "multiworld.*" or "multiworld.world.info.%arg 2%" or "multiworld.world.info.*" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-				if arg 1 is "difficulty":
+				if arg 1 = "difficulty":
 					if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%" or "multiworld.world.difficulty.*" or "multiworld.world.*":
 						if arg 2 isn't set:
 							MultiWorldWorldHelp(player)
@@ -464,28 +446,28 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 									if arg 3 = "peaceful":
 										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.peaceful" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
 											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, peaceful)
-										if player doesn't have permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.peaceful" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+										else:
 											send "&4| &cYou do not have permission to use this command !" to player
 											stop
 									if arg 3 = "easy":
 										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.easy" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
 											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, easy)
-										if player doesn't have permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.easy" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+										else:
 											send "&4| &cYou do not have permission to use this command !" to player
 											stop
 									if arg 3 = "normal":
 										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.normal" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
 											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, medium)
-										if player doesn't have permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.normal" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+										else:
 											send "&4| &cYou do not have permission to use this command !" to player
 											stop
 									if arg 3 = "hard":
 										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.hard" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
 											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, hard)
-										if player doesn't have permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.hard" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+										else:
 											send "&4| &cYou do not have permission to use this command !" to player
 											stop
-					if player doesn't have permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%" or "multiworld.world.difficulty" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
 				if arg 1 is "time":
@@ -505,30 +487,30 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 									if arg 3 = "day":
 										if player has permission "multiworld.*" or "multiworld.world.time.%arg 2%.day" or "multiworld.world.time.%arg 2%.*" or "multiworld.world.time.*" or "multiworld.world.*":
 											MultiWorldWorldTimeWorld(player, arg 2, "Day")
-										if player doesn't have permission "multiworld.*" or "multiworld.world.time.%arg 2%.day" or "multiworld.world.time.%arg 2%.*" or "multiworld.world.time.*" or "multiworld.world.*":
+										else:
 											send "&4| &cYou do not have permission to use this command !" to player
 											stop
 									if arg 3 = "night":
 										if player has permission "multiworld.*" or "multiworld.world.time.%arg 2%.night" or "multiworld.world.time.%arg 2%.*" or "multiworld.world.time.*" or "multiworld.world.*":
 											MultiWorldWorldTimeWorld(player, arg 2, "Night")
-										if player doesn't have permission "multiworld.*" or "multiworld.world.time.%arg 2%.night" or "multiworld.world.time.%arg 2%.*" or "multiworld.world.time.*" or "multiworld.world.*":
+										else:
 											send "&4| &cYou do not have permission to use this command !" to player
 											stop
-					if player doesn't have permission "multiworld.*" or "multiworld.world.time.%arg 2%" or "multiworld.world.time.*" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
 				if arg 1 is "help":
 					if player has permission "multiworld.*" or "multiworld.world.help" or "multiworld.world.*":
 						MultiWorldWorldHelp(player)
-					if player doesn't have permission "multiworld.*" or "multiworld.world.help" or "multiworld.world.*":
+					else:
 						send "&4| &cYou do not have permission to use this command !" to player
 						stop
-		if sender is console:
+		if sender = console:
 			send "&4| &cYou must be a player to use this command !" to console
 			stop
 
 on command "world" or "multiworld:world":
-	if sender is a player:
+	if sender = player:
 		if player doesn't have permission "multiworld.*" or "multiworld.world":
 			cancel event
 			send "&4| &cYou do not have permission to use this command !" to player
