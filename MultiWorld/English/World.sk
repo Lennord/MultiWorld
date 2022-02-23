@@ -171,8 +171,6 @@ function MultiWorldWorldCreateNewWorldAmplifiedNormal(s: sender):
 		stop
 
 function MultiWorldWorldCreateNewWorldAmplifiedNether(s: sender):
-	set {_s}'s uuid to uuid of {_s}
-	wait 1 tick
 	if {_s} has permission "multiworld.*" or "multiworld.world.create.amplified.nether" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
 		set {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.nether.use} to new world creator named "%{MultiWorld.use.create.use.nameworld.use.%{_s}'s uuid%.use}%"
 		set environment of {_MultiWorld.use.create.use.%{_s}'s uuid%.use.amplified.use.nether.use} to nether
