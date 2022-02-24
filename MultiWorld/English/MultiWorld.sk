@@ -2,12 +2,12 @@
 
 # |-> This skript plugin allows you to redo and improve the MultiWorld plugin (Java) but in skript !
 
-# |-> MultiWorld Update 1.4.6 RELEASE
+# |-> MultiWorld Update 1.4.7 RELEASE
 
 #  |-> PLUGIN CODE:
 
 function MultiWorldMultiworldCmdReload(s: sender):
-	if {_s} has permission "multiworld.*" or "multiworld.multiworld.reload" or "MultiWorld.MultiWorld.*":
+	if {_s} has permission "multiworld.*" or "multiworld.multiworld.reload" or "multiWorld.multiWorld.*":
 		make console execute command "/sk reload MultiWorld/"
 		send "&7[&cMultiWorld&7] &6You have restarted the plugin !" to {_s}
 		stop
@@ -18,7 +18,7 @@ function MultiWorldMultiworldCmdReload(s: sender):
 function MultiWorldMultiworldCmdInfo(s: sender):
 	if {_s} has permission "multiworld.*" or "multiworld.multiworld.info" or "multiworld.multiworld.*":
 		send "" to {_s}
-		send "&c| &6Informations:&f%nl%%nl%&8| &7Name of plugin&6: &cMultiWorld &7(&cSkript&7)&f%nl%&8| &7Creator of plugin&6: &cAlexisl315 &7(Aliases: &cLennord&7)&f%nl%&8| &7Version of plugin&6: &c1.4.6 RELEASE&f%nl%&8| &7Support version&6: &c1.18.1&f%nl%&8| &7Plugins required&6: &cSkript&7/&cSkBee &7and &cSkungee &7(for &cBungeecord&7)" to {_s}
+		send "&c| &6Informations:&f%nl%%nl%&8| &7Name of plugin&6: &cMultiWorld &7(&cSkript&7)&f%nl%&8| &7Description of plugin&6: &cMultiWorld is a skript plugin that allows you to redo the Java plugin from A to Z but in script with improvements and new features.&f%nl%&8| &7Creator of plugin&6: &cAlexisl315 &7(Aliases: &cLennord&7)&f%nl%&8| &7Version of plugin&6: &c1.4.7 RELEASE&f%nl%&8| &7Support version&6: &c1.18.1&f%nl%&8| &7Plugins required&6: &cSkript&7/&cSkBee &7and &cSkungee &7(for &cBungeecord&7)" to {_s}
 		stop
 	else:
 		send "&4| &cYou do not have permission to use this command !" to {_s}
