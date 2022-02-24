@@ -2,7 +2,7 @@
 
 # |-> This skript plugin allows you to redo and improve the MultiWorld plugin (Java) but in skript !
 
-# |-> MultiWorld Update 1.4.6 RELEASE
+# |-> MultiWorld Update 1.4.7 RELEASE
 
 #  |-> PLUGIN CODE:
 
@@ -31,7 +31,7 @@ function MultiWorldWorldCreateMenu(s: sender):
 		set slot 16 of metadata tag "MultiWorldCreateMenu" of {_s} to bedrock named "&8| &fFlat"
 		set slot 20 of metadata tag "MultiWorldCreateMenu" of {_s} to dirt named "&8| &fAmplified"
 		set slot 24 of metadata tag "MultiWorldCreateMenu" of {_s} to mycelium named "&8| &fLarge Biomes"
-		set slot 49 of metadata tag "MultiWorldCreateMenu" of {_s} to barrier named "&cClose the menu"
+		set slot 49 of metadata tag "MultiWorldCreateMenu" of {_s} to player head with nbt "{display:{Name:""{\""text\"":\""&cClose the menu\""}""},SkullOwner:{Id:[I;1590668272,1381189552,-1538418164,-1841266247],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ==""}]}}}"
 		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenu" of {_s} to orange stained glass pane
 		open (metadata tag "MultiWorldCreateMenu" of {_s}) to {_s}
 		stop
@@ -46,7 +46,7 @@ function MultiWorldWorldCreateMenuLargeBiomes(s: sender):
 		set slot 13 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to netherrack named "&8| &fNether &f(&cLarge Biomes&f)"
 		set slot 15 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to end stone named "&8| &fThe End &f(&cLarge Biomes&f)"
 		set slot 45 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to arrow named "&cReturn the main menu"
-		set slot 49 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to barrier named "&cClose the menu"
+		set slot 49 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to player head with nbt "{display:{Name:""{\""text\"":\""&cClose the menu\""}""},SkullOwner:{Id:[I;1590668272,1381189552,-1538418164,-1841266247],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ==""}]}}}"
 		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to orange stained glass pane
 		open (metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s}) to {_s}
 		stop
@@ -61,7 +61,7 @@ function MultiWorldWorldCreateMenuAmplified(s: sender):
 		set slot 13 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to netherrack named "&8| &fNether &f(&cAmplified&f)"
 		set slot 15 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to end stone named "&8| &fThe End &f(&cAmplified&f)"
 		set slot 45 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to arrow named "&cReturn the main menu"
-		set slot 49 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to barrier named "&cClose the menu"
+		set slot 49 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to player head with nbt "{display:{Name:""{\""text\"":\""&cClose the menu\""}""},SkullOwner:{Id:[I;1590668272,1381189552,-1538418164,-1841266247],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ==""}]}}}"
 		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to orange stained glass pane
 		open (metadata tag "MultiWorldCreateMenuAmplified" of {_s}) to {_s}
 		stop
@@ -308,6 +308,56 @@ on inventory click:
 			close player's inventory
 			wait 1 tick
 			MultiWorldWorldCreateNewWorldAmplifiedTheEnd(player)
+			stop
+		if name of event-slot = "&cReturn the main menu":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateMenu(player)
+			stop
+	event-inventory = (metadata tag "MultiWorldCreateMenuAmplified" of player):
+		cancel event
+		if name of event-slot = "&cClose the menu":
+			close player's inventory
+			stop
+		if name of event-slot = "&8| &fNormal &f(&cAmplified&f)":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateNewWorldNormal(player)
+			stop
+		if name of event-slot = "&8| &fNether &f(&cAmplified&f)":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateNewWorldNether(player)
+			stop
+		if name of event-slot = "&8| &fThe End &f(&cAmplified&f)":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateNewWorldTheEnd(player)
+			stop
+		if name of event-slot = "&cReturn the main menu":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateMenu(player)
+			stop
+	event-inventory = (metadata tag "MultiWorldCreateMenuLargeBiomes" of player):
+		cancel event
+		if name of event-slot = "&cClose the menu":
+			close player's inventory
+			stop
+		if name of event-slot = "&8| &fNormal &f(&cLarge Biomes&f)":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateNewWorldNormal(player)
+			stop
+		if name of event-slot = "&8| &fNether &f(&cLarge Biomes&f)":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateNewWorldNether(player)
+			stop
+		if name of event-slot = "&8| &fThe End &f(&cLarge Biomes&f)":
+			close player's inventory
+			wait 1 tick
+			MultiWorldWorldCreateNewWorldTheEnd(player)
 			stop
 		if name of event-slot = "&cReturn the main menu":
 			close player's inventory
