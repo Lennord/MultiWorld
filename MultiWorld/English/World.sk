@@ -2,8 +2,6 @@
 
 # |-> This skript plugin allows you to redo and improve the MultiWorld plugin (Java) but in skript !
 
-# |-> MultiWorld Update 1.4.7 RELEASE
-
 #  |-> PLUGIN CODE:
 
 function MultiWorldWorldHelp(s: sender):
@@ -198,25 +196,21 @@ function MultiWorldWorldCreateNewWorldAmplifiedTheEnd(s: sender):
 
 function MultiWorldWorldTeleportWorld(s: sender, w: text):
 	teleport {_s} to spawn of {_w} parsed as world
-	wait 1 tick
 	send "&7[&cMultiWorld&7] &7You have been teleported in the world &6%{_w} parsed as world% &7!" to {_s}
 	stop
 
 function MultiWorldWorldDeleteWorld(s: sender, w: text):
 	delete world file for "%{_w} parsed as world%"
-	wait 1 tick
 	send "&7[&cMultiWorld&7] &7You have deleted the world &6%{_w}% &7!" to {_s}
 	stop
 
 function MultiWorldWorldUnloadWorld(s: sender, w: text):
 	unload world {_w} parsed as world
-	wait 1 tick
 	send "&7[&cMultiWorld&7] &7You have unload the world &6%{_w}% &7!" to {_s}
 	stop
 
 function MultiWorldWorldLoadWorld(s: sender, w: text):
 	load world {_w}
-	wait 1 tick
 	send "&7[&cMultiWorld&7] &7You have load the world &6%{_w} parsed as world% &7!" to {_s}
 	stop
 
@@ -250,120 +244,57 @@ on inventory click:
 			close player's inventory
 			stop
 		if name of event-slot = "&8| &fNormal":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldNormal(player)
-			stop
 		if name of event-slot = "&8| &fNether":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldNether(player)
-			stop
 		if name of event-slot = "&8| &fThe End":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldTheEnd(player)
-			stop
 		if name of event-slot = "&8| &fFlat":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldFlat(player)
-			stop
 		if name of event-slot = "&8| &fLarge Biomes":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateMenuLargeBiomes(player)
-			stop
 		if name of event-slot = "&8| &fAmplified":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateMenuAmplified(player)
-			stop
 		if name of event-slot = "&8| &fNormal &f(&cLarge Biomes&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldLargeBiomesNormal(player)
-			stop
 		if name of event-slot = "&8| &fNether &f(&cLarge Biomes&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldLargeBiomesNether(player)
-			stop
 		if name of event-slot = "&8| &fThe End &f(&cLarge Biomes&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldLargeBiomesTheEnd(player)
-			stop
 		if name of event-slot = "&8| &fNormal &f(&cAmplified&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldAmplifiedNormal(player)
-			stop
 		if name of event-slot = "&8| &fNether &f(&cAmplified&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldAmplifiedNether(player)
-			stop
 		if name of event-slot = "&8| &fThe End &f(&cAmplified&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldAmplifiedTheEnd(player)
-			stop
 		if name of event-slot = "&cReturn the main menu":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateMenu(player)
-			stop
 	event-inventory = (metadata tag "MultiWorldCreateMenuAmplified" of player):
 		cancel event
 		if name of event-slot = "&cClose the menu":
 			close player's inventory
 			stop
 		if name of event-slot = "&8| &fNormal &f(&cAmplified&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldNormal(player)
-			stop
 		if name of event-slot = "&8| &fNether &f(&cAmplified&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldNether(player)
-			stop
 		if name of event-slot = "&8| &fThe End &f(&cAmplified&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldTheEnd(player)
-			stop
 		if name of event-slot = "&cReturn the main menu":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateMenu(player)
-			stop
 	event-inventory = (metadata tag "MultiWorldCreateMenuLargeBiomes" of player):
 		cancel event
 		if name of event-slot = "&cClose the menu":
 			close player's inventory
 			stop
 		if name of event-slot = "&8| &fNormal &f(&cLarge Biomes&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldNormal(player)
-			stop
 		if name of event-slot = "&8| &fNether &f(&cLarge Biomes&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldNether(player)
-			stop
 		if name of event-slot = "&8| &fThe End &f(&cLarge Biomes&f)":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateNewWorldTheEnd(player)
-			stop
 		if name of event-slot = "&cReturn the main menu":
-			close player's inventory
-			wait 1 tick
 			MultiWorldWorldCreateMenu(player)
-			stop
 
 command /world [<text>] [<text>] [<text>] [<text>]:
 	executable by: player and console
