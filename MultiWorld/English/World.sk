@@ -1,0 +1,506 @@
+# |-> MultiWorld (Skript) << # |->> Skript developed by alexisl315 (Lennord)
+
+# |-> This skript plugin allows you to redo and improve the MultiWorld plugin (Java) but in skript.
+
+#  |-> PLUGIN CODE:
+
+function MultiWorldWorldHelp(s: sender):
+	send "" to {_s}
+	send "&6| &8x &6Help:" to {_s}
+	send "" to {_s}
+	send "&6| &f/world &bcreate &f[&cname of new world&f] &8x &7Create new world type." to {_s}
+	send "&6| &f/world &bdelete &f[&cname of world&f] &8x &7Delete world type." to {_s}
+	send "&6| &f/world &btp&f/&bteleport &f[&cname of world&f] &8x &7Teleport to world type." to {_s}
+	send "&6| &f/world &bload &f[&cname of world&f] &8x &7Load world type." to {_s}
+	send "&6| &f/world &bunload &f[&cname of world&f] &8x &7Unload world type." to {_s}
+	send "&6| &f/world &bdifficulty &f[&cname of world&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modify the difficulty of world type." to {_s}
+	send "&6| &f/world &btime &f[&cname of world&f] &f[&cday&7, &cnight&f] &8x &7Modify the times of world type." to {_s}
+	send "&6| &f/world &binfo &f[&cname of world&f] &8x &7Info of world type." to {_s}
+	send "&6| &f/world &blist &8x &7List of all worlds types." to {_s}
+	send "&6| &f/world &bhelp &8x &7Seen all commands." to {_s}
+	stop
+
+function MultiWorldWorldCreateMenu(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.openmenu" or "multiworld.world.*":
+		set metadata tag "MultiWorldCreateMenu" of {_s} to chest inventory with 6 rows named "&6» &eCreate new world"
+		set slot 10 of metadata tag "MultiWorldCreateMenu" of {_s} to grass block named "&8| &fNormal"
+		set slot 12 of metadata tag "MultiWorldCreateMenu" of {_s} to netherrack named "&8| &fNether"
+		set slot 14 of metadata tag "MultiWorldCreateMenu" of {_s} to end stone named "&8| &fThe End"
+		set slot 16 of metadata tag "MultiWorldCreateMenu" of {_s} to bedrock named "&8| &fFlat"
+		set slot 20 of metadata tag "MultiWorldCreateMenu" of {_s} to dirt named "&8| &fAmplified"
+		set slot 24 of metadata tag "MultiWorldCreateMenu" of {_s} to mycelium named "&8| &fLarge Biomes"
+		set slot 49 of metadata tag "MultiWorldCreateMenu" of {_s} to player head with nbt "{display:{Name:""{\""text\"":\""&cClose the menu\""}""},SkullOwner:{Id:[I;1590668272,1381189552,-1538418164,-1841266247],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ==""}]}}}"
+		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenu" of {_s} to orange stained glass pane
+		open (metadata tag "MultiWorldCreateMenu" of {_s}) to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateMenuLargeBiomes(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.openmenu" or "multiworld.world.*":
+		set metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to chest inventory with 6 rows named "&6» &eCreate new world"
+		set slot 11 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to grass block named "&8| &fNormal &f(&cLarge Biomes&f)"
+		set slot 13 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to netherrack named "&8| &fNether &f(&cLarge Biomes&f)"
+		set slot 15 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to end stone named "&8| &fThe End &f(&cLarge Biomes&f)"
+		set slot 45 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to arrow named "&cReturn the main menu"
+		set slot 49 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to player head with nbt "{display:{Name:""{\""text\"":\""&cClose the menu\""}""},SkullOwner:{Id:[I;1590668272,1381189552,-1538418164,-1841266247],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ==""}]}}}"
+		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s} to orange stained glass pane
+		open (metadata tag "MultiWorldCreateMenuLargeBiomes" of {_s}) to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateMenuAmplified(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.openmenu" or "multiworld.world.*":
+		set metadata tag "MultiWorldCreateMenuAmplified" of {_s} to chest inventory with 6 rows named "&6» &eCreate new world"
+		set slot 11 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to grass block named "&8| &fNormal &f(&cAmplified&f)"
+		set slot 13 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to netherrack named "&8| &fNether &f(&cAmplified&f)"
+		set slot 15 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to end stone named "&8| &fThe End &f(&cAmplified&f)"
+		set slot 45 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to arrow named "&cReturn the main menu"
+		set slot 49 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to player head with nbt "{display:{Name:""{\""text\"":\""&cClose the menu\""}""},SkullOwner:{Id:[I;1590668272,1381189552,-1538418164,-1841266247],Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmViNTg4YjIxYTZmOThhZDFmZjRlMDg1YzU1MmRjYjA1MGVmYzljYWI0MjdmNDYwNDhmMThmYzgwMzQ3NWY3In19fQ==""}]}}}"
+		set slot 36, 37, 38, 39, 40, 41, 42, 43 and 44 of metadata tag "MultiWorldCreateMenuAmplified" of {_s} to orange stained glass pane
+		open (metadata tag "MultiWorldCreateMenuAmplified" of {_s}) to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldNormal(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.normal" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to normal
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cNormal&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldNether(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.nether" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to nether
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cNether&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldTheEnd(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.end" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to the end
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cThe end&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldFlat(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.flat" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to normal
+		set world type of {_MultiWorld::worldcreate::%{_s}'s uuid%} to flat
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cFlat&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldLargeBiomesNormal(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.largebiomes.normal" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to normal
+		set world type of {_MultiWorld::worldcreate::%{_s}'s uuid%} to large biomes
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldLargeBiomesNether(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.largebiomes.nether" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to nether
+		set world type of {_MultiWorld::worldcreate::%{_s}'s uuid%} to large biomes
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldLargeBiomesTheEnd(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.largebiomes.end" or "multiworld.world.create.largebiomes.*" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to the end
+		set world type of {_MultiWorld::worldcreate::%{_s}'s uuid%} to large biomes
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cNormal &7- &cLarge Biomes&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldAmplifiedNormal(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.amplified.normal" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to normal
+		set world type of {_MultiWorld::worldcreate::%{_s}'s uuid%} to amplified
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cNormal &7- &cAmplified&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldAmplifiedNether(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.amplified.nether" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to nether
+		set world type of {_MultiWorld::worldcreate::%{_s}'s uuid%} to amplified
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cNether &7- &cAmplified&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldCreateNewWorldAmplifiedTheEnd(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.world.create.amplified.end" or "multiworld.world.create.amplified.*" or "multiworld.world.create.*" or "multiworld.world.*":
+		close {_s}'s inventory
+		set {_MultiWorld::worldcreate::%{_s}'s uuid%} to new world creator named "%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%"
+		set environment of {_MultiWorld::worldcreate::%{_s}'s uuid%} to the end
+		set world type of {_MultiWorld::worldcreate::%{_s}'s uuid%} to amplified
+		load world from creator {_MultiWorld::worldcreate::%{_s}'s uuid%}
+		wait 1 tick
+		send "&7You have created new world &6%{MultiWorld::worldnamecreate::%{_s}'s uuid%}%&7. &7(&cThe end &7- &cAmplified&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldWorldTeleportWorld(s: sender, w: text):
+	teleport {_s} to spawn of {_w} parsed as world
+	send "&7You have been teleported in the world &6%{_w} parsed as world%&7." to {_s}
+	stop
+
+function MultiWorldWorldDeleteWorld(s: sender, w: text):
+	delete world file for "%{_w} parsed as world%"
+	send "&7You have deleted the world &6%{_w}%&7." to {_s}
+	stop
+
+function MultiWorldWorldUnloadWorld(s: sender, w: text):
+	unload world {_w} parsed as world
+	send "&7You have unload the world &6%{_w}%&7." to {_s}
+	stop
+
+function MultiWorldWorldLoadWorld(s: sender, w: text):
+	load world {_w}
+	send "&7You have load the world &6%{_w} parsed as world%&7." to {_s}
+	stop
+
+function MultiWorldWorldInfoWorld(s: sender, w: text):
+	send "" to {_s}
+	send "&c| &6Informations:&f%nl%%nl%&8| &7Name of world&6: &c%{_w} parsed as world%&f%nl%&8| &7Seed of world&6: &c%seed of {_w} parsed as world%&f%nl%&8| &7Difficulty of world&6: &c%difficulty of {_w} parsed as world%&f%nl%&8| &7Time of world&6: &c%time of {_w} parsed as world%" to {_s}
+	stop
+
+function MultiWorldWorldTimeWorld(s: sender, w: text, t: text):
+	if {_t} = "day":
+		set time of {_w} parsed as world to 6:00
+		wait 1 tick
+		send "&7You have set day in the world &6%{_w} parsed as world%&7." to {_s}
+		stop
+	if {_t} = "night":
+		set time of {_w} parsed as world to 19:30
+		wait 1 tick
+		send "&7You have set night in the world &6%{_w} parsed as world%&7." to {_s}
+		stop
+
+function MultiWorldWorldDifficultyWorld(s: sender, w: world, d: difficulty):
+	set difficulty of {_w} to {_d}
+	wait 1 tick
+	send "&7You have modified the difficulty of the world &6%{_w}%&7. &7(&c%{_d}%&7)" to {_s}
+	stop
+
+on inventory click:
+	event-inventory = (metadata tag "MultiWorldCreateMenu" of player):
+		cancel event
+		if name of event-slot = "&cClose the menu":
+			close player's inventory
+			stop
+		if name of event-slot = "&8| &fNormal":
+			MultiWorldWorldCreateNewWorldNormal(player)
+		if name of event-slot = "&8| &fNether":
+			MultiWorldWorldCreateNewWorldNether(player)
+		if name of event-slot = "&8| &fThe End":
+			MultiWorldWorldCreateNewWorldTheEnd(player)
+		if name of event-slot = "&8| &fFlat":
+			MultiWorldWorldCreateNewWorldFlat(player)
+		if name of event-slot = "&8| &fLarge Biomes":
+			MultiWorldWorldCreateMenuLargeBiomes(player)
+		if name of event-slot = "&8| &fAmplified":
+			MultiWorldWorldCreateMenuAmplified(player)
+		if name of event-slot = "&8| &fNormal &f(&cLarge Biomes&f)":
+			MultiWorldWorldCreateNewWorldLargeBiomesNormal(player)
+		if name of event-slot = "&8| &fNether &f(&cLarge Biomes&f)":
+			MultiWorldWorldCreateNewWorldLargeBiomesNether(player)
+		if name of event-slot = "&8| &fThe End &f(&cLarge Biomes&f)":
+			MultiWorldWorldCreateNewWorldLargeBiomesTheEnd(player)
+		if name of event-slot = "&8| &fNormal &f(&cAmplified&f)":
+			MultiWorldWorldCreateNewWorldAmplifiedNormal(player)
+		if name of event-slot = "&8| &fNether &f(&cAmplified&f)":
+			MultiWorldWorldCreateNewWorldAmplifiedNether(player)
+		if name of event-slot = "&8| &fThe End &f(&cAmplified&f)":
+			MultiWorldWorldCreateNewWorldAmplifiedTheEnd(player)
+		if name of event-slot = "&cReturn the main menu":
+			MultiWorldWorldCreateMenu(player)
+	event-inventory = (metadata tag "MultiWorldCreateMenuAmplified" of player):
+		cancel event
+		if name of event-slot = "&cClose the menu":
+			close player's inventory
+			stop
+		if name of event-slot = "&8| &fNormal &f(&cAmplified&f)":
+			MultiWorldWorldCreateNewWorldNormal(player)
+		if name of event-slot = "&8| &fNether &f(&cAmplified&f)":
+			MultiWorldWorldCreateNewWorldNether(player)
+		if name of event-slot = "&8| &fThe End &f(&cAmplified&f)":
+			MultiWorldWorldCreateNewWorldTheEnd(player)
+		if name of event-slot = "&cReturn the main menu":
+			MultiWorldWorldCreateMenu(player)
+	event-inventory = (metadata tag "MultiWorldCreateMenuLargeBiomes" of player):
+		cancel event
+		if name of event-slot = "&cClose the menu":
+			close player's inventory
+			stop
+		if name of event-slot = "&8| &fNormal &f(&cLarge Biomes&f)":
+			MultiWorldWorldCreateNewWorldNormal(player)
+		if name of event-slot = "&8| &fNether &f(&cLarge Biomes&f)":
+			MultiWorldWorldCreateNewWorldNether(player)
+		if name of event-slot = "&8| &fThe End &f(&cLarge Biomes&f)":
+			MultiWorldWorldCreateNewWorldTheEnd(player)
+		if name of event-slot = "&cReturn the main menu":
+			MultiWorldWorldCreateMenu(player)
+
+command /world [<text>] [<text>] [<text>] [<text>]:
+	executable by: player and console
+	aliases: multiworld:world
+	description: &fMultiWorld command /world.
+	trigger:
+		if sender = player:
+			if arg 1 isn't set:
+				MultiWorldWorldHelp(player)
+			else:
+				if arg 1 != "create" or "delete" or "teleport" or "tp" or "list" or "load" or "unload" or "info" or "difficulty" or "time" or "help":
+					MultiWorldWorldHelp(player)
+				if arg 1 = "create":
+					if player has permission "multiworld.*" or "multiworld.world.create" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) is set:
+								send "&4| &8x &cThe world &6%arg 2% &cis already exist." to player
+								stop
+							else:
+								set {MultiWorld::worldnamecreate::%player's uuid%} to arg 2
+								wait 1 tick
+								MultiWorldWorldCreateMenu(player)
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "delete":
+					if player has permission "multiworld.*" or "multiworld.world.delete" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) isn't set:
+								send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+								stop
+							else:
+								if (arg 2 parsed as world) = "world":
+									send "&4| &8x &cThe world &6%arg 2% &cis not deleted because this world is world default." to player
+									stop
+								else:
+									MultiWorldWorldDeleteWorld(player, arg 2)
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "teleport" or "tp":
+					if player has permission "multiworld.*" or "multiworld.world.teleport.%arg 2%" or "multiworld.world.teleport.*" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) isn't set:
+								send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+								stop
+							else:
+								MultiWorldWorldTeleportWorld(player, arg 2)
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "list":
+					if player has permission "multiworld.*" or "multiworld.world.list" or "multiworld.world.*":
+						set {_result::worlds} to 0
+						send "" to player
+						send "&6| &8x &6List of worlds:" to player
+						send "" to player
+						loop all worlds:
+							add 1 to {_result::worlds} 
+							send "&6| &8x &6World &7%{_result::worlds}%&7: &c%loop-value%" to player
+						stop
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "load":
+					if player has permission "multiworld.*" or "multiworld.world.load" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) is set:
+								send "&4| &8x &cThe world &6%arg 2% &cis already exist." to player
+								stop
+							else:
+								MultiWorldWorldLoadWorld(player, arg 2)
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "unload":
+					if player has permission "multiworld.*" or "multiworld.world.unload" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) isn't set:
+								send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+								stop
+							else:
+								if (arg 2 parsed as world) = "world":
+									send "&4| &8x &cThe world &6%arg 2% &cis not unload because this world is world default." to player
+									stop
+								else:
+									MultiWorldWorldUnloadWorld(player, arg 2)
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "info":
+					if player has permission "multiworld.*" or "multiworld.world.info.%arg 2%" or "multiworld.world.info.*" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) isn't set:
+								send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+								stop
+							else:
+								MultiWorldWorldInfoWorld(player, arg 2)
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "difficulty":
+					if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%" or "multiworld.world.difficulty.*" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) isn't set:
+								send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+								stop
+							else:
+								if arg 3 isn't set:
+									MultiWorldWorldHelp(player)
+								else:
+									if arg 3 != "peaceful" or "easy" or "normal" or "hard":
+										MultiWorldWorldHelp(player)
+									if arg 3 = "peaceful":
+										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.peaceful" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, peaceful)
+										else:
+											send "&4| &8x &cYou do not have permission to use this command." to player
+											stop
+									if arg 3 = "easy":
+										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.easy" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, easy)
+										else:
+											send "&4| &8x &cYou do not have permission to use this command." to player
+											stop
+									if arg 3 = "normal":
+										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.normal" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, medium)
+										else:
+											send "&4| &8x &cYou do not have permission to use this command." to player
+											stop
+									if arg 3 = "hard":
+										if player has permission "multiworld.*" or "multiworld.world.difficulty.%arg 2%.hard" or "multiworld.world.difficulty.%arg 2%.*" or "multiworld.world.difficulty.*" or "multiworld.world.time.*" or "multiworld.world.*":
+											MultiWorldWorldDifficultyWorld(player, arg 2 parsed as world, hard)
+										else:
+											send "&4| &8x &cYou do not have permission to use this command." to player
+											stop
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "time":
+					if player has permission "multiworld.*" or "multiworld.world.time.%arg 2%" or "multiworld.world.time.*" or "multiworld.world.*":
+						if arg 2 isn't set:
+							MultiWorldWorldHelp(player)
+						else:
+							if (arg 2 parsed as world) isn't set:
+								send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+								stop
+							else:
+								if arg 3 isn't set:
+									MultiWorldWorldHelp(player)
+								else:
+									if arg 3 != "day" or "night":
+										MultiWorldWorldHelp(player)
+									if arg 3 = "day":
+										if player has permission "multiworld.*" or "multiworld.world.time.%arg 2%.day" or "multiworld.world.time.%arg 2%.*" or "multiworld.world.time.*" or "multiworld.world.*":
+											MultiWorldWorldTimeWorld(player, arg 2, "Day")
+										else:
+											send "&4| &8x &cYou do not have permission to use this command." to player
+											stop
+									if arg 3 = "night":
+										if player has permission "multiworld.*" or "multiworld.world.time.%arg 2%.night" or "multiworld.world.time.%arg 2%.*" or "multiworld.world.time.*" or "multiworld.world.*":
+											MultiWorldWorldTimeWorld(player, arg 2, "Night")
+										else:
+											send "&4| &8x &cYou do not have permission to use this command." to player
+											stop
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "help":
+					if player has permission "multiworld.*" or "multiworld.world.help" or "multiworld.world.*":
+						MultiWorldWorldHelp(player)
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+		if sender = console:
+			send "&4| &8x &cYou must be a player to use this command." to console
+			stop
+
+on command "world" or "multiworld:world":
+	if sender = player:
+		if player doesn't have permission "multiworld.*" or "multiworld.world":
+			cancel event
+			send "&4| &8x &cYou do not have permission to use this command." to player
+			stop

@@ -1,0 +1,64 @@
+# |-> MultiWorld (Skript) << # |->> Skript developed by alexisl315 (Lennord)
+
+# |-> This skript plugin allows you to redo and improve the MultiWorld plugin (Java) but in skript.
+
+#  |-> PLUGIN CODE:
+
+function MultiWorldMultiworldCmdReload(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.multiworld.reload" or "multiWorld.multiWorld.*":
+		make console execute command "/sk reload MultiWorld/"
+		send "&6You have restarted the plugin." to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldMultiworldCmdInfo(s: sender):
+	if {_s} has permission "multiworld.*" or "multiworld.multiworld.info" or "multiworld.multiworld.*":
+		send "" to {_s}
+		send "&c| &6Informations:&f%nl%%nl%&8| &7Name of plugin&6: &cMultiWorld &7(&cSkript&7)&f%nl%&8| &7Description of plugin&6: &cMultiWorld is a skript plugin that allows you to redo the Java plugin from A to Z but in script with improvements and new features.&f%nl%&8| &7Creator of plugin&6: &cAlexisl315 &7(Aliases: &cLennord&7)&f%nl%&8| &7Version of plugin&6: &c1.4.8 RELEASE&f%nl%&8| &7Support version&6: &c1.18.2&f%nl%&8| &7Plugins required&6: &cSkript&7/&cSkBee &7and &cSkungee &7(for &cBungeecord&7)" to {_s}
+		stop
+	else:
+		send "&4| &8x &cYou do not have permission to use this command." to {_s}
+		stop
+
+function MultiWorldMultiworldHelpCmd(s: sender):
+	send "" to {_s}
+	send "&6| &8x &6Help:" to {_s}
+	send "" to {_s}
+	send "&6| &f/multiworld &breload &8x &7Reload the skript." to {_s}
+	send "&6| &f/multiworld &binfo &8x &7Info to the skript." to {_s}
+	stop
+
+command /multiworld [<text>] [<text>]:
+	executable by: player and console
+	aliases: multiworld:multiworld, mw, multiworld:mw
+	description: &fMultiWorld command /multiworld.
+	trigger:
+		if sender = player:
+			if arg 1 isn't set:
+				MultiWorldMultiworldHelpCmd(player)
+			else:
+				if arg 1 != "reload" or "info":
+					MultiWorldMultiworldHelpCmd(player)
+				if arg 1 = "reload":
+					MultiWorldMultiworldCmdReload(player)
+				if arg 1 = "info":
+					MultiWorldMultiworldCmdInfo(player)
+		if sender = console:
+			if arg 1 isn't set:
+				MultiWorldMultiworldHelpCmd(console)
+			else:
+				if arg 1 != "reload" or "info":
+					MultiWorldMultiworldHelpCmd(console)
+				if arg 1 = "reload":
+					MultiWorldMultiworldCmdReload(console)
+				if arg 1 = "info":
+					MultiWorldMultiworldCmdInfo(console)
+
+on command "multiworld" or "multiworld:multiworld" or "mw" or "multiworld:mw":
+	if sender = player:
+		if player doesn't have permission "multiworld.*" or "multiworld.multiworld":
+			cancel event
+			send "&4| &8x &cYou do not have permission to use this command." to player
+			stop
