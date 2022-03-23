@@ -2,7 +2,7 @@
 
 # |-> This skript plugin allows you to redo and improve the MultiWorld plugin (Java) but in skript.
 
-#  |-> PLUGIN CODE:
+# |-> PLUGIN CODE:
 
 function MultiWorldWorldHelp(s: sender):
 	send "" to {_s}
@@ -16,6 +16,7 @@ function MultiWorldWorldHelp(s: sender):
 	send "&6| &f/world &bdifficulty &f[&cname of world&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modify the difficulty of world type." to {_s}
 	send "&6| &f/world &btime &f[&cname of world&f] &f[&cday&7, &cnight&f] &8x &7Modify the times of world type." to {_s}
 	send "&6| &f/world &binfo &f[&cname of world&f] &8x &7Info of world type." to {_s}
+	send "&6| &f/world &bsetspawn &8x &7Mofify spawn location of player's world." to {_s}
 	send "&6| &f/world &blist &8x &7List of all worlds types." to {_s}
 	send "&6| &f/world &bhelp &8x &7Seen all commands." to {_s}
 	stop
@@ -232,19 +233,21 @@ function MultiWorldWorldInfoWorld(s: sender, w: text):
 function MultiWorldWorldTimeWorld(s: sender, w: text, t: text):
 	if {_t} = "day":
 		set time of {_w} parsed as world to 6:00
-		wait 1 tick
 		send "&7You have set day in the world &6%{_w} parsed as world%&7." to {_s}
 		stop
 	if {_t} = "night":
 		set time of {_w} parsed as world to 19:30
-		wait 1 tick
 		send "&7You have set night in the world &6%{_w} parsed as world%&7." to {_s}
 		stop
 
 function MultiWorldWorldDifficultyWorld(s: sender, w: world, d: difficulty):
 	set difficulty of {_w} to {_d}
-	wait 1 tick
 	send "&7You have modified the difficulty of the world &6%{_w}%&7. &7(&c%{_d}%&7)" to {_s}
+	stop
+
+function MultiWorldWorldSpawnWorld(s: sender):
+	set spawn point of {_s}'s world to {_s}'s location
+	send "&7You have modified the spawn location of the world &6%{_s}'s world%&7." to {_s}
 	stop
 
 on inventory click:
@@ -315,7 +318,7 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 			if arg 1 isn't set:
 				MultiWorldWorldHelp(player)
 			else:
-				if arg 1 != "create" or "delete" or "teleport" or "tp" or "list" or "load" or "unload" or "info" or "difficulty" or "time" or "help":
+				if arg 1 != "create" or "delete" or "teleport" or "tp" or "list" or "load" or "unload" or "info" or "difficulty" or "time" or "setspawn" or "help":
 					MultiWorldWorldHelp(player)
 				if arg 1 = "create":
 					if player has permission "multiworld.*" or "multiworld.world.create" or "multiworld.world.*":
@@ -485,6 +488,12 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 										else:
 											send "&4| &8x &cYou do not have permission to use this command." to player
 											stop
+					else:
+						send "&4| &8x &cYou do not have permission to use this command." to player
+						stop
+				if arg 1 = "setspawn":
+					if player has permission "multiworld.*" or "multiworld.world.setspawn" or "multiworld.world.*":
+						MultiWorldWorldSpawnWorld(player)
 					else:
 						send "&4| &8x &cYou do not have permission to use this command." to player
 						stop
