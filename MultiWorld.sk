@@ -4,16 +4,20 @@
 #   --> Code:
 
 on load:
-	load "plugins/MultiWorld/config.yml"
-	if yaml value "language" from "config" doesn't exist:
+	if yaml file "plugins/MultiWorld/config.yml" doesn't exist:
+		load "plugins/MultiWorld/config.yml"
 		set yaml value "language" from "config" to "English"
+		set yaml value "world.not-delete.world" from "config" to true
+		save yaml "config"
+		unload yaml "config"
+		stop
 	else:
+		load "plugins/MultiWorld/config.yml"
 		if yaml value "language" from "config" != "English":
 			set yaml value "language" from "config" to "English"
-	if yaml value "world.not-delete" from "config" doesn't exist:
-		set yaml value "world.not-delete.world" from "config" to true
-	save yaml "config"
-	unload yaml "config"
+		save yaml "config"
+		unload yaml "config"
+		stop
 
 on load:
 	send "&7[&bMultiWorld&7] &8x &2Enabled" to console
