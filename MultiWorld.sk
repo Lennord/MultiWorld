@@ -42,17 +42,14 @@ function MultiWorldNoCommandConsole(s: sender):
 function MultiWorldHelp(s: sender, typehelp: text):
 	load "plugins/MultiWorld/config.yml"
 	yaml value "language" from "config" = "English":
+		send "" to {_s}
+		send "&8| &8x &6Help:" to {_s}
+		send "" to {_s}
 		{_typehelp} = "MultiworldCMD":
-			send "" to {_s}
-			send "&8| &8x &6Help:" to {_s}
-			send "" to {_s}
 			send "&8| &f/multiworld &binfo &8x &7Seen informations of this skript." to {_s}
 			send "&8| &f/multiworld &breload &8x &7Reload this skript." to {_s}
 			send "" to {_s}
 		{_typehelp} = "WorldCMD":
-			send "" to {_s}
-			send "&8| &8x &6Help:" to {_s}
-			send "" to {_s}
 			send "&8| &f/world &bcreate &f[&cname of new world&f] &f[&cworld type&f] &8x &7Create new world type." to {_s}
 			send "&8| &f/world &bdelete &f[&cname of world&f] &8x &7Delete world type." to {_s}
 			send "&8| &f/world &btp&f/&bteleport &f[&cname of world&f] &8x &7Teleport to world type." to {_s}
@@ -66,17 +63,14 @@ function MultiWorldHelp(s: sender, typehelp: text):
 			send "&8| &f/world &bhelp &8x &7Seen all commands of the skript." to {_s}
 			send "" to {_s}
 	yaml value "language" from "config" = "Français":
+		send "" to {_s}
+		send "&8| &8x &6Aide:" to {_s}
+		send "" to {_s}
 		{_typehelp} = "MultiworldCMD":
-			send "" to {_s}
-			send "&8| &8x &6Aide:" to {_s}
-			send "" to {_s}
 			send "&8| &f/multiworld &binfo &8x &7Voir les informations sur le skript." to {_s}
 			send "&8| &f/multiworld &breload &8x &7Redémarrer le skript." to {_s}
 			send "" to {_s}
 		{_typehelp} = "WorldCMD":
-			send "" to {_s}
-			send "&8| &8x &6Aide:" to {_s}
-			send "" to {_s}
 			send "&8| &f/world &bcreate &f[&cname of new world&f] &f[&cworld type&f] &8x &7Créer un type de monde." to {_s}
 			send "&8| &f/world &bdelete &f[&cname of world&f] &8x &7Supprimer un type de monde." to {_s}
 			send "&8| &f/world &btp&f/&bteleport &f[&cname of world&f] &8x &7Se téléporter vers un type de monde." to {_s}
@@ -168,25 +162,24 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 										yaml value "language" from "config" = "Français":
 											send "&6List de tous les types de mondes: &cNormal &8x &cNether &8x &cEnd &8x &cLargeBiome &8x &cAmplified &8x &cFlat" to player
 									arg 3 = "normal":
-										set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-										set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to normal
-										load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 										yaml value "language" from "config" = "English":
 											send "&7You have created new world &6%arg 2%&7. &7(&cNormal&7)" to player
 										yaml value "language" from "config" = "Français":
 											send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNormal&7)" to player
 									arg 3 = "nether":
-										set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-										set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to nether
-										load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+										set environment of {_MultiWorld::%player's uuid%::worldcreator} to nether
+										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 										yaml value "language" from "config" = "English":
 											send "&7You have created new world &6%arg 2%&7. &7(&cNether&7)" to player
 										yaml value "language" from "config" = "Français":
 											send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNether&7)" to player
 									arg 3 = "end":
-										set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-										set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to the end
-										load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+										set environment of {_MultiWorld::%player's uuid%::worldcreator} to the end
+										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 										yaml value "language" from "config" = "English":
 											send "&7You have created new world &6%arg 2%&7. &7(&cThe End&7)" to player
 										yaml value "language" from "config" = "Français":
@@ -198,28 +191,27 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 											yaml value "language" from "config" = "Français":
 												send "&6Liste des types de mondes de LargeBiomes: &cNormal &8x &cNether &8x &cEnd" to player
 										arg 4 = "normal":
-											set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to normal
-											set world type of {_MultiWorld::%{_s}'s uuid%::worldcreator} to large biomes
-											load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+											set world type of {_MultiWorld::%player's uuid%::worldcreator} to large biomes
+											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 											yaml value "language" from "config" = "English":
 												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cLargeBiomes&7)" to player
 											yaml value "language" from "config" = "Français":
 												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNormal &8x &cLargeBiomes&7)" to player
 										arg 4 = "nether":
-											set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to nether
-											set world type of {_MultiWorld::%{_s}'s uuid%::worldcreator} to large biomes
-											load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+											set environment of {_MultiWorld::%player's uuid%::worldcreator} to nether
+											set world type of {_MultiWorld::%player's uuid%::worldcreator} to large biomes
+											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 											yaml value "language" from "config" = "English":
 												send "&7You have created new world &6%arg 2%&7. &7(&cNether &8x &cLargeBiomes&7)" to player
 											yaml value "language" from "config" = "Français":
 												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNether &8x &cLargeBiomes&7)" to player
 										arg 4 = "end":
-											set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to the end
-											set world type of {_MultiWorld::%{_s}'s uuid%::worldcreator} to large biomes
-											load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+											set environment of {_MultiWorld::%player's uuid%::worldcreator} to the end
+											set world type of {_MultiWorld::%player's uuid%::worldcreator} to large biomes
+											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 											yaml value "language" from "config" = "English":
 												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cLargeBiomes&7)" to player
 											yaml value "language" from "config" = "Français":
@@ -231,37 +223,35 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 											yaml value "language" from "config" = "Français":
 												send "&6Liste des types de mondes de Amplified: &cNormal &8x &cNether &8x &cEnd" to player
 										arg 4 = "normal":
-											set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to normal
-											set world type of {_MultiWorld::%{_s}'s uuid%::worldcreator} to amplified
-											load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+											set world type of {_MultiWorld::%player's uuid%::worldcreator} to amplified
+											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 											yaml value "language" from "config" = "English":
 												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cAmplified&7)" to player
 											yaml value "language" from "config" = "Français":
 												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNormal &8x &cAmplified&7)" to player
 										arg 4 = "nether":
-											set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to nether
-											set world type of {_MultiWorld::%{_s}'s uuid%::worldcreator} to amplified
-											load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+											set environment of {_MultiWorld::%player's uuid%::worldcreator} to nether
+											set world type of {_MultiWorld::%player's uuid%::worldcreator} to amplified
+											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 											yaml value "language" from "config" = "English":
 												send "&7You have created new world &6%arg 2%&7. &7(&cNether &8x &cAmplified&7)" to player
 											yaml value "language" from "config" = "Français":
 												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNether &8x &cAmplified&7)" to player
 										arg 4 = "end":
-											set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to the end
-											set world type of {_MultiWorld::%{_s}'s uuid%::worldcreator} to amplified
-											load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+											set environment of {_MultiWorld::%player's uuid%::worldcreator} to the end
+											set world type of {_MultiWorld::%player's uuid%::worldcreator} to amplified
+											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 											yaml value "language" from "config" = "English":
 												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cAmplified&7)" to player
 											yaml value "language" from "config" = "Français":
 												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cThe End &8x &cAmplified&7)" to player
 									arg 3 = "flat":
-										set {_MultiWorld::%{_s}'s uuid%::worldcreator} to new world creator named arg 2
-										set environment of {_MultiWorld::%{_s}'s uuid%::worldcreator} to normal
-										set world type of {_MultiWorld::%{_s}'s uuid%::worldcreator} to flat
-										load world from creator {_MultiWorld::%{_s}'s uuid%::worldcreator}
+										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
+										set world type of {_MultiWorld::%player's uuid%::worldcreator} to flat
+										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
 										yaml value "language" from "config" = "English":
 											send "&7You have created new world &6%arg 2%&7. &7(&cNormal&7)" to player
 										yaml value "language" from "config" = "Français":
@@ -414,7 +404,7 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 										yaml value "language" from "config" = "Français":
 											send "&7Vous avez modifié la diffilculté du monde &6%arg 2 parsed as world%&7. &7(&cEasy&7)" to player
 									arg 3 = "normal":
-										set difficulty of arg 2 parsed as world to normal
+										set difficulty of arg 2 parsed as world to medium
 										yaml value "language" from "config" = "English":
 											send "&7You have modified the difficulty of the world &6%arg 2 parsed as world%&7. &7(&cNormal&7)" to player
 										yaml value "language" from "config" = "Français":
