@@ -102,7 +102,7 @@ command /multiworld [<text>] [<text>]:
 					send "&8| &fName of skript: &cMultiWorld (Skript)" to sender
 					send "&8| &fAuthor of skript: &calexisl315 (Alias: Lennord)" to sender
 					send "&8| &fDescription of skript: &cThis skript allows you to redo all or almost all the functionality of the MultiWorld and Multiverse-Core plugin." to sender
-					send "&8| &fVersion of skript: &c2.0.3" to sender
+					send "&8| &fVersion of skript: &c2.0.4" to sender
 					send "&8| &fPlugins requirements: &cSkript&7, &cSkript-YAML &7and &cSkBee" to sender
 					send "&8| &fAll languages of skript: &cEnglish &7and &cFrançais" to sender
 					send "" to sender
@@ -113,7 +113,7 @@ command /multiworld [<text>] [<text>]:
 					send "&8| &fNom du skript: &cMultiWorld (Skript)" to sender
 					send "&8| &fAuteur du skript: &calexisl315 (Aliase: Lennord)" to sender
 					send "&8| &fDescription du skript: &cCe skript permet de refaire toutes ou presque toutes les fonctionnalités du plugin MultiWorld et Multiverse-Core." to sender
-					send "&8| &fVersion du skript: &c2.0.3" to sender
+					send "&8| &fVersion du skript: &c2.0.4" to sender
 					send "&8| &fPlugins obligatoires: &cSkript&7, &cSkript-YAML &7et &cSkBee" to sender
 					send "&8| &fTous les langues du skript: &cEnglish &7et &cFrançais" to sender
 					send "" to sender
