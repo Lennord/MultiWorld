@@ -71,14 +71,14 @@ function MultiWorldHelp(s: sender, typehelp: text):
 			send "&8| &f/multiworld &breload &8x &7Redémarrer le skript." to {_s}
 			send "" to {_s}
 		{_typehelp} = "WorldCMD":
-			send "&8| &f/world &bcreate &f[&cname of new world&f] &f[&cworld type&f] &8x &7Créer un type de monde." to {_s}
-			send "&8| &f/world &bdelete &f[&cname of world&f] &8x &7Supprimer un type de monde." to {_s}
-			send "&8| &f/world &btp&f/&bteleport &f[&cname of world&f] &8x &7Se téléporter vers un type de monde." to {_s}
-			send "&8| &f/world &bload &f[&cname of world&f] &8x &7Charger un type de monde." to {_s}
-			send "&8| &f/world &bunload &f[&cname of world&f] &8x &7Décharger un type de monde." to {_s}
-			send "&8| &f/world &bdifficulty &f[&cname of world&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modifier les règles du jeu d'un type de monde." to {_s}
-			send "&8| &f/world &btime &f[&cname of world&f] &f[&cday&7, &cnight&f] &8x &7Modifier le temps d'un type de monde." to {_s}
-			send "&8| &f/world &binfo &f[&cname of world&f] &8x &7Voir les informations d'un type de monde." to {_s}
+			send "&8| &f/world &bcreate &f[&cnom du mondeorld&f] &f[&ctype de monde&f] &8x &7Créer un type de monde." to {_s}
+			send "&8| &f/world &bdelete &f[&cnom du monde&f] &8x &7Supprimer un type de monde." to {_s}
+			send "&8| &f/world &btp&f/&bteleport &f[&cnom du monde&f] &8x &7Se téléporter vers un type de monde." to {_s}
+			send "&8| &f/world &bload &f[&cnom du monde&f] &8x &7Charger un type de monde." to {_s}
+			send "&8| &f/world &bunload &f[&cnom du monde&f] &8x &7Décharger un type de monde." to {_s}
+			send "&8| &f/world &bdifficulty &f[&cnom du monde&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modifier les règles du jeu d'un type de monde." to {_s}
+			send "&8| &f/world &btime &f[&cnom du monde&f] &f[&cday&7, &cnight&f] &8x &7Modifier le temps d'un type de monde." to {_s}
+			send "&8| &f/world &binfo &f[&cnom du monde&f] &8x &7Voir les informations d'un type de monde." to {_s}
 			send "&8| &f/world &bsetspawn &8x &7Modifer le spawn d'un type de monde." to {_s}
 			send "&8| &f/world &blist &8x &7Voir la liste de tous les mondes." to {_s}
 			send "&8| &f/world &bhelp &8x &7Voir toutes les commandes du skript." to {_s}
