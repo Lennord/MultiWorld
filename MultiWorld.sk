@@ -9,17 +9,12 @@ on load:
 		set yaml value "language" from "config" to "English"
 		set yaml value "world.not-delete.world" from "config" to true
 		save yaml "config"
-		unload yaml "config"
-		stop
 	else:
 		load "plugins/MultiWorld/config.yml"
 		yaml value "language" from "config" != "English" or "Français":
 			set yaml value "language" from "config" to "English"
 		save yaml "config"
-		unload yaml "config"
-		stop
-
-on load:
+	unload yaml "config"
 	send "&7[&bMultiWorld&7] &8x &2Enabled" to console
 
 on unload:
@@ -50,17 +45,17 @@ function MultiWorldHelp(s: sender, typehelp: text):
 			send "&8| &f/multiworld &breload &8x &7Reload this skript." to {_s}
 			send "" to {_s}
 		{_typehelp} = "WorldCMD":
-			send "&8| &f/world &bcreate &f[&cname of new world&f] &f[&cworld type&f] &8x &7Create new world type." to {_s}
-			send "&8| &f/world &bdelete &f[&cname of world&f] &8x &7Delete world type." to {_s}
-			send "&8| &f/world &btp&f/&bteleport &f[&cname of world&f] &8x &7Teleport to world type." to {_s}
-			send "&8| &f/world &bload &f[&cname of world&f] &8x &7Load world type." to {_s}
-			send "&8| &f/world &bunload &f[&cname of world&f] &8x &7Unload world type." to {_s}
-			send "&8| &f/world &bdifficulty &f[&cname of world&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modify the difficulty of world type." to {_s}
-			send "&8| &f/world &btime &f[&cname of world&f] &f[&cday&7, &cnight&f] &8x &7Modify the times of world type." to {_s}
-			send "&8| &f/world &binfo &f[&cname of world&f] &8x &7Info of world type." to {_s}
-			send "&8| &f/world &bsetspawn &8x &7Modify the spawn of world type." to {_s}
-			send "&8| &f/world &blist &8x &7List of all worlds types." to {_s}
-			send "&8| &f/world &bhelp &8x &7Seen all commands of the skript." to {_s}
+			send "&8| &f/world &bcreate &f[&cname of new world&f] &f[&cworld environment&f] &f[&cworld type&f] &8x &7Create new world." to {_s}
+			send "&8| &f/world &bdelete &f[&cname of world&f] &8x &7Delete world." to {_s}
+			send "&8| &f/world &btp&f/&bteleport &f[&cname of world&f] &8x &7Teleport to world." to {_s}
+			send "&8| &f/world &bload &f[&cname of world&f] &8x &7Load world." to {_s}
+			send "&8| &f/world &bunload &f[&cname of world&f] &8x &7Unload world." to {_s}
+			send "&8| &f/world &bdifficulty &f[&cname of world&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modify the difficulty of world." to {_s}
+			send "&8| &f/world &btime &f[&cname of world&f] &f[&cday&7, &cnight&f] &8x &7Modify the time of world." to {_s}
+			send "&8| &f/world &binfo &f[&cname of world&f] &8x &7Info of world." to {_s}
+			send "&8| &f/world &bsetspawn &8x &7Modify the spawn of world." to {_s}
+			send "&8| &f/world &blist &8x &7List of all worlds." to {_s}
+			send "&8| &f/world &bhelp &8x &7Seen all commands of the script." to {_s}
 			send "" to {_s}
 	yaml value "language" from "config" = "Français":
 		send "" to {_s}
@@ -71,17 +66,17 @@ function MultiWorldHelp(s: sender, typehelp: text):
 			send "&8| &f/multiworld &breload &8x &7Redémarrer le skript." to {_s}
 			send "" to {_s}
 		{_typehelp} = "WorldCMD":
-			send "&8| &f/world &bcreate &f[&cnom du mondeorld&f] &f[&ctype de monde&f] &8x &7Créer un type de monde." to {_s}
-			send "&8| &f/world &bdelete &f[&cnom du monde&f] &8x &7Supprimer un type de monde." to {_s}
-			send "&8| &f/world &btp&f/&bteleport &f[&cnom du monde&f] &8x &7Se téléporter vers un type de monde." to {_s}
-			send "&8| &f/world &bload &f[&cnom du monde&f] &8x &7Charger un type de monde." to {_s}
-			send "&8| &f/world &bunload &f[&cnom du monde&f] &8x &7Décharger un type de monde." to {_s}
-			send "&8| &f/world &bdifficulty &f[&cnom du monde&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modifier les règles du jeu d'un type de monde." to {_s}
-			send "&8| &f/world &btime &f[&cnom du monde&f] &f[&cday&7, &cnight&f] &8x &7Modifier le temps d'un type de monde." to {_s}
-			send "&8| &f/world &binfo &f[&cnom du monde&f] &8x &7Voir les informations d'un type de monde." to {_s}
-			send "&8| &f/world &bsetspawn &8x &7Modifer le spawn d'un type de monde." to {_s}
-			send "&8| &f/world &blist &8x &7Voir la liste de tous les mondes." to {_s}
-			send "&8| &f/world &bhelp &8x &7Voir toutes les commandes du skript." to {_s}
+			send "&8| &f/world &bcreate &f[&cnom du monde&f] &f[&ctype de monde&f] &8x &7Créer un monde." to {_s}
+			send "&8| &f/world &bdelete &f[&cnom du monde&f] &8x &7Supprimer un monde." to {_s}
+			send "&8| &f/world &btp&f/&bteleport &f[&cnom du monde&f] &8x &7Se téléporter vers un monde." to {_s}
+			send "&8| &f/world &bload &f[&cnom du monde&f] &8x &7Charger un monde." to {_s}
+			send "&8| &f/world &bunload &f[&cnom du monde&f] &8x &7Décharger un monde." to {_s}
+			send "&8| &f/world &bdifficulty &f[&cnom du monde&f] &f[&cpeaceful&7, &ceasy&7, &cnormal&7, &chard&f] &8x &7Modifier les règles du jeu d'un monde." to {_s}
+			send "&8| &f/world &btime &f[&cnom du monde&f] &f[&cday&7, &cnight&f] &8x &7Modifier le temps d'un monde." to {_s}
+			send "&8| &f/world &binfo &f[&cnom du monde&f] &8x &7Voir les informations d'un monde." to {_s}
+			send "&8| &f/world &bsetspawn &8x &7Modifer le spawn d'un monde." to {_s}
+			send "&8| &f/world &blist &8x &7Obtenir la liste de tous les mondes." to {_s}
+			send "&8| &f/world &bhelp &8x &7Obtenir toutes les commandes du skript." to {_s}
 			send "" to {_s}
 
 command /multiworld [<text>] [<text>]:
@@ -125,12 +120,6 @@ command /multiworld [<text>] [<text>]:
 				yaml value "language" from "config" = "Français":
 					send "&7Vous avez redémarré le skript." to sender
 
-on command "/multiworld" or "/multiworld:multiworld":
-	sender = player:
-		player doesn't have permission "multiworld.multiworld" or "multiworld.*":
-			cancel event
-			MultiWorldNoPermission(player)
-
 command /world [<text>] [<text>] [<text>] [<text>]:
 	aliases: multiworld:world
 	description: &fMultiworld command /world.
@@ -149,113 +138,38 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						else:
 							(arg 2 parsed as world) is set:
 								yaml value "language" from "config" = "English":
-									send "&4| &8x &cThe world &6%arg 2% &cis already exist." to player
+									send "&4| &8x &cThe world &6%arg 2% &calready exist." to player
 								yaml value "language" from "config" = "Français":
 									send "&4| &8x &cLe monde &6%arg 2% &cn'existe pas." to player
 							else:
 								arg 3 isn't set:
 									MultiWorldHelp(player, "WorldCMD")
 								else:
-									arg 3 != "normal" or "nether" or "end" or "largebiome" or "amplified" or "flat":
+									set {_env} to arg 3 parsed as environment
+									set {_type} to arg 4 parsed as world type
+									{_env} isn't set:
 										yaml value "language" from "config" = "English":
-											send "&6List of all worlds types: &cNormal &8x &cNether &8x &cEnd &8x &cLargeBiome &8x &cAmplified &8x &cFlat" to player
+											send "&6List of all worlds environments: &cNormal &8x &cNether &8x &cEnd" to player
 										yaml value "language" from "config" = "Français":
-											send "&6List de tous les types de mondes: &cNormal &8x &cNether &8x &cEnd &8x &cLargeBiome &8x &cAmplified &8x &cFlat" to player
-									arg 3 = "normal":
-										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
+											send "&6List de tous les environnements de mondes: &cNormal &8x &cNether &8x &cEnd" to player
+									{_type} isn't set:
 										yaml value "language" from "config" = "English":
-											send "&7You have created new world &6%arg 2%&7. &7(&cNormal&7)" to player
+											send "&6List of all worlds types: &cNormal &8x &cLarge_Biomes &8x &cAmplified &8x &cFlat" to player
 										yaml value "language" from "config" = "Français":
-											send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNormal&7)" to player
-									arg 3 = "nether":
-										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-										set environment of {_MultiWorld::%player's uuid%::worldcreator} to nether
-										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
+											send "&6List de tous les types de mondes: &cNormal &8x &cLarge_Biomes &8x &cAmplified &8x &cFlat" to player
+									else:
+										set {_creator} to new world creator named arg 2
+										set environment of {_creator} to {_env}
+										set world type of {_creator} to {_type}
+										load world from creator {_creator}
+										set {_e} to "%{_env}%"
+										set {_t} to "%{_type}%"
+										replace "_" with " " in {_e}
+										replace "_" with " " in {_t}
 										yaml value "language" from "config" = "English":
-											send "&7You have created new world &6%arg 2%&7. &7(&cNether&7)" to player
+											send "&7You have created new world &6%arg 2%&7. &7(&c%strict proper case {_e}% &8x &c%strict proper case {_t}%&7)" to player
 										yaml value "language" from "config" = "Français":
-											send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNether&7)" to player
-									arg 3 = "end":
-										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-										set environment of {_MultiWorld::%player's uuid%::worldcreator} to the end
-										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-										yaml value "language" from "config" = "English":
-											send "&7You have created new world &6%arg 2%&7. &7(&cThe End&7)" to player
-										yaml value "language" from "config" = "Français":
-											send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cThe End&7)" to player
-									arg 3 = "largebiome":
-										arg 4 != "normal" or "nether" or "end":
-											yaml value "language" from "config" = "English":
-												send "&6List of all worlds types of LargeBiomes: &cNormal &8x &cNether &8x &cEnd" to player
-											yaml value "language" from "config" = "Français":
-												send "&6Liste des types de mondes de LargeBiomes: &cNormal &8x &cNether &8x &cEnd" to player
-										arg 4 = "normal":
-											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-											set world type of {_MultiWorld::%player's uuid%::worldcreator} to large biomes
-											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-											yaml value "language" from "config" = "English":
-												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cLargeBiomes&7)" to player
-											yaml value "language" from "config" = "Français":
-												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNormal &8x &cLargeBiomes&7)" to player
-										arg 4 = "nether":
-											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%player's uuid%::worldcreator} to nether
-											set world type of {_MultiWorld::%player's uuid%::worldcreator} to large biomes
-											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-											yaml value "language" from "config" = "English":
-												send "&7You have created new world &6%arg 2%&7. &7(&cNether &8x &cLargeBiomes&7)" to player
-											yaml value "language" from "config" = "Français":
-												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNether &8x &cLargeBiomes&7)" to player
-										arg 4 = "end":
-											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%player's uuid%::worldcreator} to the end
-											set world type of {_MultiWorld::%player's uuid%::worldcreator} to large biomes
-											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-											yaml value "language" from "config" = "English":
-												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cLargeBiomes&7)" to player
-											yaml value "language" from "config" = "Français":
-												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cThe End &8x &cLargeBiomes&7)" to player
-									arg 3 = "amplified":
-										arg 4 != "normal" or "nether" or "end":
-											yaml value "language" from "config" = "English":
-												send "&6List of all worlds types of Amplified: &cNormal &8x &cNether &8x &cEnd" to player
-											yaml value "language" from "config" = "Français":
-												send "&6Liste des types de mondes de Amplified: &cNormal &8x &cNether &8x &cEnd" to player
-										arg 4 = "normal":
-											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-											set world type of {_MultiWorld::%player's uuid%::worldcreator} to amplified
-											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-											yaml value "language" from "config" = "English":
-												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cAmplified&7)" to player
-											yaml value "language" from "config" = "Français":
-												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNormal &8x &cAmplified&7)" to player
-										arg 4 = "nether":
-											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%player's uuid%::worldcreator} to nether
-											set world type of {_MultiWorld::%player's uuid%::worldcreator} to amplified
-											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-											yaml value "language" from "config" = "English":
-												send "&7You have created new world &6%arg 2%&7. &7(&cNether &8x &cAmplified&7)" to player
-											yaml value "language" from "config" = "Français":
-												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNether &8x &cAmplified&7)" to player
-										arg 4 = "end":
-											set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-											set environment of {_MultiWorld::%player's uuid%::worldcreator} to the end
-											set world type of {_MultiWorld::%player's uuid%::worldcreator} to amplified
-											load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-											yaml value "language" from "config" = "English":
-												send "&7You have created new world &6%arg 2%&7. &7(&cNormal &8x &cAmplified&7)" to player
-											yaml value "language" from "config" = "Français":
-												send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cThe End &8x &cAmplified&7)" to player
-									arg 3 = "flat":
-										set {_MultiWorld::%player's uuid%::worldcreator} to new world creator named arg 2
-										set world type of {_MultiWorld::%player's uuid%::worldcreator} to flat
-										load world from creator {_MultiWorld::%player's uuid%::worldcreator}
-										yaml value "language" from "config" = "English":
-											send "&7You have created new world &6%arg 2%&7. &7(&cNormal&7)" to player
-										yaml value "language" from "config" = "Français":
-											send "&7Vous avez créer le monde &6%arg 2%&7. &7(&cNormal&7)" to player
+											send "&7Vous avez créer le monde &6%arg 2%&7. &7(&c%strict proper case {_e}% &8x &c%strict proper case {_t}%&7)" to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "delete":
@@ -263,23 +177,25 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						arg 2 isn't set:
 							MultiWorldHelp(player, "WorldCMD")
 						else:
-							(arg 2 parsed as world) isn't set:
+							set {_world} to world(arg 2)
+							{_world} isn't set:
 								yaml value "language" from "config" = "English":
-									send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+									send "&4| &8x &cThe world &6%arg 2% &cdoes not exist." to player
 								yaml value "language" from "config" = "Français":
 									send "&4| &8x &cLe monde &6%arg 2% &cn'existe pas." to player
 							else:
-								yaml value "world.not-delete.%arg 2 parsed as world%" from "config" = true:
+								{_world} = first element of all worlds:
 									yaml value "language" from "config" = "English":
-										send "&4| &8x &cThe world &6%arg 2% &cis not deleted because this world is world default." to player
+										send "&4| &8x &cThe world &6%arg 2% &ccan not deleted because it is the default world." to player
 									yaml value "language" from "config" = "Français":
 										send "&4| &8x &cLe monde &6%arg 2% &cne peut pas être supprimer, car, ce monde est un monde normal." to player
 								else:
+									unload world {_world}
+									delete world file for arg 2
 									yaml value "language" from "config" = "English":
-										send "&7You have deleted the world &6%arg 2 parsed as world%&7." to player
+										send "&7You have deleted the world &6%arg 2%&7." to player
 									yaml value "language" from "config" = "Français":
-										send "&7Vous avez supprimé le monde &6%arg 2 parsed as world%&7." to player
-									delete world file for "%arg 2 parsed as world%"
+										send "&7Vous avez supprimé le monde &6%arg 2%&7." to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "teleport" or "tp":
@@ -287,25 +203,28 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						arg 2 isn't set:
 							MultiWorldHelp(player, "WorldCMD")
 						else:
-							(arg 2 parsed as world) isn't set:
+							set {_world} to world(arg 2)
+							{_world} isn't set:
 								yaml value "language" from "config" = "English":
-									send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+									send "&4| &8x &cThe world &6%arg 2% &cdoes not exist." to player
 								yaml value "language" from "config" = "Français":
 									send "&4| &8x &cLe monde &6%arg 2% &cn'existe pas." to player
 							else:
-								teleport player to spawn of arg 2 parsed as world
+								teleport player to spawn of {_world}
 								yaml value "language" from "config" = "English":
-									send "&7You have been teleported in the world &6%arg 2 parsed as world%&7." to player
+									send "&7You have been teleported to the world &6%arg 2%&7." to player
 								yaml value "language" from "config" = "Français":
-									send "&7Vous avez été téléporté dans le monde &6%arg 2 parsed as world%&7." to player
+									send "&7Vous avez été téléporté dans le monde &6%arg 2%&7." to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "list":
 					player has permission "multiworld.world.list" or "multiworld.world.*" or  "multiworld.*":
+						set {_worlds} to "%all worlds%"
+						replace "," and " and" with "&7,&c" in {_worlds}
 						yaml value "language" from "config" = "English":
-							send "&6List of all worlds&7: &c%all worlds%" to player
+							send "&6List of all worlds&7: &c%{_worlds}%" to player
 						yaml value "language" from "config" = "Français":
-							send "&6Liste de tous les mondes&7: &c%all worlds%" to player
+							send "&6Liste de tous les mondes&7: &c%{_worlds}%" to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "load":
@@ -313,17 +232,17 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						arg 2 isn't set:
 							MultiWorldHelp(player, "WorldCMD")
 						else:
-							(arg 2 parsed as world) is set:
+							world(arg 2) is set:
 								yaml value "language" from "config" = "English":
-									send "&4| &8x &cThe world &6%arg 2% &cis already exist." to player
+									send "&4| &8x &cThe world &6%arg 2% &calready exist." to player
 								yaml value "language" from "config" = "Français":
 									send "&4| &8x &cLe monde &6%arg 2% &cexiste déjà." to player
 							else:
 								load world arg 2
 								yaml value "language" from "config" = "English":
-									send "&7You have loaded the world &6%arg 2 parsed as world%&7." to player
+									send "&7You have loaded the world &6%arg 2%&7." to player
 								yaml value "language" from "config" = "Français":
-									send "&7Vous avez chargé le monde &6%arg 2 parsed as world%&7." to player
+									send "&7Vous avez chargé le monde &6%arg 2%&7." to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "unload":
@@ -331,17 +250,23 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						arg 2 isn't set:
 							MultiWorldHelp(player, "WorldCMD")
 						else:
-							(arg 2 parsed as world) is set:
+							set {_world} to world(arg 2)
+							{_world} isn't set:
 								yaml value "language" from "config" = "English":
-									send "&4| &8x &cThe world &6%arg 2% &cis already exist." to player
+									send "&4| &8x &cThe world &6%arg 2% &cdoes not exist." to player
 								yaml value "language" from "config" = "Français":
-									send "&4| &8x &cLe monde &6%arg 2% &cexiste déjà." to player
+									send "&4| &8x &cLe monde &6%arg 2% &cexiste déjà." to player #you will need to update your french here
+							{_world} = first element of all worlds:
+								yaml value "language" from "config" = "English":
+									send "&4| &8x &cThe world &6%arg 2% &ccannot be unloaded as it is the default world." to player
+								yaml value "language" from "config" = "Français":
+									send "&4| &8x &cLe monde &6%arg 2% &cexiste déjà." to player #you will need to update your french here
 							else:
-								unload world arg 2 parsed as world
+								unload world(arg 2)
 								yaml value "language" from "config" = "English":
-									send "&7You have unloaded the world &6%arg 2 parsed as world%&7." to player
+									send "&7You have unloaded the world &6%arg 2%&7." to player
 								yaml value "language" from "config" = "Français":
-									send "&7Vous avez déchargé le monde &6%arg 2 parsed as world%&7." to player
+									send "&7Vous avez déchargé le monde &6%arg 2%&7." to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "info":
@@ -349,29 +274,30 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						arg 2 isn't set:
 							MultiWorldHelp(player, "WorldCMD")
 						else:
-							(arg 2 parsed as world) isn't set:
+							set {_world} to world(arg 2)
+							{_world} isn't set:
 								yaml value "language" from "config" = "English":
-									send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+									send "&4| &8x &cThe world &6%arg 2% &cdoes not exist." to player
 								yaml value "language" from "config" = "Français":
 									send "&4| &8x &cLe monde &6%arg 2% &cexiste déjà." to player
 							else:
 								yaml value "language" from "config" = "English":
-									send "" to sender
-									send "&8| &8x &6Help:" to sender
-									send "" to sender
-									send "&8| &fName of world: &c%arg 2 parsed as world%" to sender
-									send "&8| &fSeed of world: &c%seed of arg 2 parsed as world%" to sender
-									send "&8| &fDifficulty of world&6: &c%difficulty of arg 2 parsed as world%" to sender
-									send "&8| &fTime of world&6: &c%time of arg 2 parsed as world%" to sender
+									send "" to player
+									send "&8| &8x &6Help:" to player
+									send "" to player
+									send "&8| &fName of world: &c%{_world}%" to player
+									send "&8| &fSeed of world: &c%seed of {_world}%" to player
+									send "&8| &fDifficulty of world&6: &c%difficulty of {_world}%" to player
+									send "&8| &fTime of world&6: &c%time of {_world}%" to player
 									send "" to sender
 								yaml value "language" from "config" = "Français":
-									send "" to sender
-									send "&8| &8x &6Aide:" to sender
-									send "" to sender
-									send "&8| &fNom du monde: &c%arg 2 parsed as world%" to sender
-									send "&8| &fGraine du monde: &c%seed of arg 2 parsed as world%" to sender
-									send "&8| &fDifficulté du monde&6: &c%difficulty of arg 2 parsed as world%" to sender
-									send "&8| &fTemps du monde&6: &c%time of arg 2 parsed as world%" to sender
+									send "" to player
+									send "&8| &8x &6Aide:" to player
+									send "" to player
+									send "&8| &fNom du monde: &c%{_world}%" to player
+									send "&8| &fGraine du monde: &c%seed of {_world}%" to player
+									send "&8| &fDifficulté du monde&6: &c%difficulty of {_world}%" to player
+									send "&8| &fTemps du monde&6: &c%time of {_world}%" to player
 									send "" to sender
 					else:
 						MultiWorldNoPermission(player)
@@ -380,41 +306,31 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						arg 2 isn't set:
 							MultiWorldHelp(player, "WorldCMD")
 						else:
-							(arg 2 parsed as world) isn't set:
+							set {_world} to world(arg 2)
+							{_world} isn't set:
 								yaml value "language" from "config" = "English":
-									send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
+									send "&4| &8x &cThe world &6%arg 2% &cdoes not exist." to player
 								yaml value "language" from "config" = "Français":
 									send "&4| &8x &cLe monde &6%arg 2% &cn'existe pas." to player
 							else:
 								arg 3 isn't set:
 									MultiWorldHelp(player, "WorldCMD")
 								else:
-									arg 3 != "peaceful" or "easy" or "normal" or "hard":
-										send "&6List of all difficulty types: &cPeaceful &8x &cEasy &8x &cNormal &8x &cHard" to player
-									arg 3 = "peaceful":
-										set difficulty of arg 2 parsed as world to peaceful
+									set {_diff} to arg 3 parsed as difficulty
+									{_diff} isn't set:
 										yaml value "language" from "config" = "English":
-											send "&7You have modified the difficulty of the world &6%arg 2 parsed as world%&7. &7(&cPeaceful&7)" to player
+											send "&6List of all difficulty types: &cPeaceful &8x &cEasy &8x &cNormal &8x &cHard" to player
 										yaml value "language" from "config" = "Français":
-											send "&7Vous avez modifié la diffilculté du monde &6%arg 2 parsed as world%&7. &7(&cPeaceful&7)" to player
-									arg 3 = "easy":
-										set difficulty of arg 2 parsed as world to easy
+											send "&6Liste des types de diffilculté: &cPeaceful &8x &cEasy &8x &cNormal &8x &cHard" to player
+									else:
+										set difficulty of {_world} to {_diff}
+										set {_d} to strict proper case "%{_diff}%"
+										{_d} = "Medium":
+											set {_d} to "Normal" #Silly Skript using "Medium"
 										yaml value "language" from "config" = "English":
-											send "&7You have modified the difficulty of the world &6%arg 2 parsed as world%&7. &7(&cEasy&7)" to player
+											send "&7You have modified the difficulty of the world &6%arg 2 parsed as world%&7. &7(&c%{_d}%&7)" to player
 										yaml value "language" from "config" = "Français":
-											send "&7Vous avez modifié la diffilculté du monde &6%arg 2 parsed as world%&7. &7(&cEasy&7)" to player
-									arg 3 = "normal":
-										set difficulty of arg 2 parsed as world to medium
-										yaml value "language" from "config" = "English":
-											send "&7You have modified the difficulty of the world &6%arg 2 parsed as world%&7. &7(&cNormal&7)" to player
-										yaml value "language" from "config" = "Français":
-											send "&7Vous avez modifié la diffilculté du monde &6%arg 2 parsed as world%&7. &7(&cNormal&7)" to player
-									arg 3 = "hard":
-										set difficulty of arg 2 parsed as world to hard
-										yaml value "language" from "config" = "English":
-											send "&7You have modified the difficulty of the world &6%arg 2 parsed as world%&7. &7(&cHard&7)" to player
-										yaml value "language" from "config" = "Français":
-											send "&7Vous avez modifié la diffilculté du monde &6%arg 2 parsed as world%&7. &7(&cHard&7)" to player
+											send "&7Vous avez modifié la diffilculté du monde &6%arg 2 parsed as world%&7. &7(&c%{_d}%7)" to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "time":
@@ -422,7 +338,8 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 						arg 2 isn't set:
 							MultiWorldHelp(player, "WorldCMD")
 						else:
-							(arg 2 parsed as world) isn't set:
+							set {_world} to world(arg 2)
+							{_world} isn't set:
 								yaml value "language" from "config" = "English":
 									send "&4| &8x &cThe world &6%arg 2% &cis not exist." to player
 								yaml value "language" from "config" = "Français":
@@ -431,20 +348,14 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 								arg 3 isn't set:
 									MultiWorldHelp(player, "WorldCMD")
 								else:
-									arg 3 != "day" or "night":
+									set {_time} to arg 3 parsed as time period
+									{_time} isn't set:
 										MultiWorldHelp(player, "WorldCMD")
-									arg 3 = "day":
-										set time of arg 2 parsed as world to 6:00
-										yaml value "language" from "config" = "English":
-											send "&7You have modified time in the world &6%arg 2 parsed as world%&7." to player
-										yaml value "language" from "config" = "Français":
-											send "&7Vous avez modifié le temps du monde &6%arg 2 parsed as world%&7." to player
-									arg 3 = "night":
-										set time of arg 2 parsed as world to 19:30
-										yaml value "language" from "config" = "English":
-											send "&7You have modified time in the world &6%arg 2 parsed as world%&7." to player
-										yaml value "language" from "config" = "Français":
-											send "&7Vous avez modifié le temps du monde &6%arg 2 parsed as world%&7." to player
+									set time of {_world} to {_time}
+									yaml value "language" from "config" = "English":
+										send "&7You have modified time in the world &6%arg 2%&7." to player
+									yaml value "language" from "config" = "Français":
+										send "&7Vous avez modifié le temps du monde &6%arg 2%&7." to player
 					else:
 						MultiWorldNoPermission(player)
 				arg 1 = "setspawn":
@@ -459,8 +370,13 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 		sender = console:
 			MultiWorldNoCommandConsole(console)
 
-on command "/world" or "/multiworld:world":
+on command:
 	sender = player:
-		player doesn't have permission "multiworld.world" or "multiworld.*":
-			cancel event
-			MultiWorldNoPermission(player)
+		command = "multiworld" or "multiworld:multiworld":
+			player doesn't have permission "multiworld.multiworld" or "multiworld.*":
+				cancel event
+				MultiWorldNoPermission(player)
+		command = "/world" or "/multiworld:world":
+			player doesn't have permission "multiworld.world" or "multiworld.*":
+				cancel event
+				MultiWorldNoPermission(player)
