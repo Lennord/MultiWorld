@@ -1,8 +1,3 @@
-#   . MultiWorld (Skript), Developped by alexisl315 (Alias: Lennord).
-#   . This skript allows you to redo all or almost all the functionality of the MultiWorld and Multiverse-Core plugin.
-
-#   --> Code:
-
 on load:
 	yaml file "plugins/MultiWorld/config.yml" doesn't exist:
 		load "plugins/MultiWorld/config.yml"
@@ -62,7 +57,7 @@ function MultiWorldHelp(s: sender, typehelp: text):
 		send "&8| &8x &6Aide:" to {_s}
 		send "" to {_s}
 		{_typehelp} = "MultiworldCMD":
-			send "&8| &f/multiworld &binfo &8x &7Voir les informations sur le skript." to {_s}
+			send "&8| &f/multiworld &binfo &8x &7Obtenir les informations sur le skript." to {_s}
 			send "&8| &f/multiworld &breload &8x &7Redémarrer le skript." to {_s}
 			send "" to {_s}
 		{_typehelp} = "WorldCMD":
@@ -95,7 +90,7 @@ command /multiworld [<text>] [<text>]:
 					send "&8| &8x &6Help:" to sender
 					send "" to sender
 					send "&8| &fName of skript: &cMultiWorld (Skript)" to sender
-					send "&8| &fAuthor of skript: &calexisl315 (Alias: Lennord)" to sender
+					send "&8| &fLink of skript: &chttps://www.spigotmc.org/resources/multiworld-skript-1-17-1-1-18-2.92889/" to sender
 					send "&8| &fDescription of skript: &cThis skript allows you to redo all or almost all the functionality of the MultiWorld and Multiverse-Core plugin." to sender
 					send "&8| &fVersion of skript: &c2.0.5" to sender
 					send "&8| &fPlugins requirements: &cSkript&7, &cSkript-YAML &7and &cSkBee" to sender
@@ -106,7 +101,7 @@ command /multiworld [<text>] [<text>]:
 					send "&8| &8x &6Aide:" to sender
 					send "" to sender
 					send "&8| &fNom du skript: &cMultiWorld (Skript)" to sender
-					send "&8| &fAuteur du skript: &calexisl315 (Aliase: Lennord)" to sender
+					send "&8| &fLien du skript: &chttps://www.spigotmc.org/resources/multiworld-skript-1-17-1-1-18-2.92889/" to sender
 					send "&8| &fDescription du skript: &cCe skript permet de refaire toutes ou presque toutes les fonctionnalités du plugin MultiWorld et Multiverse-Core." to sender
 					send "&8| &fVersion du skript: &c2.0.5" to sender
 					send "&8| &fPlugins obligatoires: &cSkript&7, &cSkript-YAML &7et &cSkBee" to sender
@@ -142,25 +137,30 @@ command /world [<text>] [<text>] [<text>] [<text>]:
 								yaml value "language" from "config" = "Français":
 									send "&4| &8x &cLe monde &6%arg 2% &cn'existe pas." to player
 							else:
-								arg 3 isn't set:
-									MultiWorldHelp(player, "WorldCMD")
+								arg 3 != "Normal" or "Nether" or "End":
+									yaml value "language" from "config" = "English":
+										send "&6List of all worlds environments: &cNormal &8x &cNether &8x &cEnd" to player
+									yaml value "language" from "config" = "Français":
+										send "&6List de tous les environnements de mondes: &cNormal &8x &cNether &8x &cEnd" to player
 								else:
 									set {_env} to arg 3 parsed as environment
-									set {_type} to arg 4 parsed as world type
-									{_env} isn't set:
+									arg 4 != "Normal" or "Large_Biomes" or "Amplified" or "Flat" or "Void":
 										yaml value "language" from "config" = "English":
-											send "&6List of all worlds environments: &cNormal &8x &cNether &8x &cEnd" to player
+											send "&6List of all worlds types: &cNormal &8x &cLarge_Biomes &8x &cAmplified &8x &cFlat &8x &cVoid" to player
 										yaml value "language" from "config" = "Français":
-											send "&6List de tous les environnements de mondes: &cNormal &8x &cNether &8x &cEnd" to player
-									{_type} isn't set:
-										yaml value "language" from "config" = "English":
-											send "&6List of all worlds types: &cNormal &8x &cLarge_Biomes &8x &cAmplified &8x &cFlat" to player
-										yaml value "language" from "config" = "Français":
-											send "&6List de tous les types de mondes: &cNormal &8x &cLarge_Biomes &8x &cAmplified &8x &cFlat" to player
+											send "&6Liste de tous les types de mondes: &cNormal &8x &cLarge_Biomes &8x &cAmplified &8x &cFlat &8x &cVoid" to player
 									else:
+										arg 4 = "Void":
+											set {_type} to "Void"
+										set {_type} to arg 4 parsed as world type
 										set {_creator} to new world creator named arg 2
-										set environment of {_creator} to {_env}
-										set world type of {_creator} to {_type}
+										{_type} != "Void":
+											set environment of {_creator} to {_env}
+											set world type of {_creator} to {_type}
+										else:
+											set world type of {_creator} to flat
+											set generator settings of {_creator} to "{""biome"": ""minecraft:plains"",""layers"": []}}"
+											set should generate structures of {_creator} to false
 										load world from creator {_creator}
 										set {_e} to "%{_env}%"
 										set {_t} to "%{_type}%"
@@ -376,7 +376,7 @@ on command:
 			player doesn't have permission "multiworld.multiworld" or "multiworld.*":
 				cancel event
 				MultiWorldNoPermission(player)
-		command = "/world" or "/multiworld:world":
+		command = "world" or "multiworld:world":
 			player doesn't have permission "multiworld.world" or "multiworld.*":
 				cancel event
 				MultiWorldNoPermission(player)
